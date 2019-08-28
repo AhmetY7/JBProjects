@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="099e5b68-f228-4770-911a-707cd39a4667" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="099e5b68-f228-4770-911a-707cd39a4667" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,9 +30,17 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="JBProjects" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -48,6 +54,11 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="CREATE_PULL_REQUEST_DEFAULT_BRANCH" value="Encryption-DecryptionTest" />
+    <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_USER" value="AhmetY7" />
+    <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_NAME" value="JBProjects" />
   </component>
   <component name="ProjectId" id="1Q3Us6MAmt8fp6rOQjKxktbQ786" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -78,6 +89,19 @@
   <component name="RunManager">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="encryptdecrypt.Main" />
+      <module name="Encryption-Decryption-task_main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="encryptdecrypt.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -113,6 +137,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -124,7 +153,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1566998976407</updated>
-      <workItem from="1566998978116" duration="1786000" />
+      <workItem from="1566998978116" duration="3422000" />
+      <workItem from="1567014589126" duration="1894000" />
     </task>
     <task id="LOCAL-00001" summary="Branch is updated.">
       <created>1567001658456</created>
@@ -133,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567001658456</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Stage #2 completed">
+      <created>1567015503960</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1567015503960</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,7 +181,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -152,7 +191,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Branch is updated." />
-    <option name="LAST_COMMIT_MESSAGE" value="Branch is updated." />
+    <MESSAGE value="Stage #2 completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Stage #2 completed" />
   </component>
   <component name="WindowStateProjectService">
     <state width="364" height="220" key="Git.Branch.Popup@1080.1920" />

@@ -13,23 +13,35 @@ public class EncryptDecryptTest extends BaseStageTest {
     public List<PredefinedIOTestCase> generate() {
         return List.of(
             new PredefinedIOTestCase(
-                "welcome to hyperskill\n" +
-                "5",
-                "bjqhtrj yt mdujwxpnqq"),
-
+                "enc\n" +
+                    "Welcome to hyperskill!\n" +
+                    "5",
+                "\\jqhtrj%yt%m~ujwxpnqq&"),
             new PredefinedIOTestCase(
-                "treasure\n" +
-                    "10",
-                "dbokcebo"),
-
+                "enc\n" +
+                    "Hello\n" +
+                    "0",
+                "Hello"),
             new PredefinedIOTestCase(
-                "qdvdqvrxqwxrxwpvrxspvxiqgdiqarairpbiqqid\n" +
-                    "12",
-                "cphpchdjcijdjibhdjebhjucspucmdmudbnuccup"),
-
+                "enc\n" +
+                    "012345678\n" +
+                    "1",
+                "123456789"),
             new PredefinedIOTestCase(
-                "y\n" +
-                    "10",
-                "i"));
+                "dec\n" +
+                    "\\jqhtrj%yt%m~ujwxpnqq&\n" +
+                    "5",
+                "Welcome to hyperskill!"),
+            new PredefinedIOTestCase(
+                "dec\n" +
+                    "Hello\n" +
+                    "0",
+                "Hello"),
+            new PredefinedIOTestCase(
+                "dec\n" +
+                    "222233334444\n" +
+                    "1",
+                "111122223333")
+        );
     }
 }
