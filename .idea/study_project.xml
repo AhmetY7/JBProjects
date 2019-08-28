@@ -429,7 +429,7 @@
           <option name="items">
             <list>
               <FrameworkLesson>
-                <option name="currentTaskIndex" value="1" />
+                <option name="currentTaskIndex" value="2" />
                 <option name="customPresentableName" />
                 <option name="id" value="0" />
                 <option name="index" value="1" />
@@ -500,8 +500,8 @@
                       <option name="id" value="5388" />
                       <option name="index" value="2" />
                       <option name="name" value="Knowledge is key" />
-                      <option name="record" value="-1" />
-                      <option name="status" value="Failed" />
+                      <option name="record" value="2" />
+                      <option name="status" value="Solved" />
                       <option name="files">
                         <map>
                           <entry key="test/EncryptDecryptTest.java">
