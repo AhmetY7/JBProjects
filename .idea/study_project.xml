@@ -501,7 +501,7 @@
                       <option name="index" value="2" />
                       <option name="name" value="Knowledge is key" />
                       <option name="record" value="-1" />
-                      <option name="status" value="Unchecked" />
+                      <option name="status" value="Failed" />
                       <option name="files">
                         <map>
                           <entry key="test/EncryptDecryptTest.java">
@@ -524,7 +524,7 @@
                                 <option name="answerPlaceholders">
                                   <list />
                                 </option>
-                                <option name="highlightErrors" value="false" />
+                                <option name="highlightErrors" value="true" />
                                 <option name="name" value="src/encryptdecrypt/Main.java" />
                                 <option name="text" value="package encryptdecrypt;&#10;&#10;public class Main {&#10;    public static void main(String[] args) {&#10;        System.out.println(&quot;dv ulfmw z givzhfiv!&quot;);&#10;    }&#10;}&#10;" />
                                 <option name="trackChanges" value="true" />

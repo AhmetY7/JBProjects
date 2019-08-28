@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="EncryptDecryptTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-08-28T13:31:27" hostname="DESKTOP-THO95HJ" time="0.029">
+<testsuite name="EncryptDecryptTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-08-28T18:02:47" hostname="DESKTOP-THO95HJ" time="0.056">
   <properties/>
-  <testcase name="start" classname="EncryptDecryptTest" time="0.029"/>
-  <system-out><![CDATA[dv ulfmw z givzhfiv!
-]]></system-out>
+  <testcase name="start" classname="EncryptDecryptTest" time="0.056"/>
+  <system-out><![CDATA[bjqhtrj yt mdujwxpnqqdbokcebocphpchdjcijdjibhdjebhjucspucmdmudbnuccupi]]></system-out>
   <system-err><![CDATA[Start test 1
+Start test 2
+Start test 3
+Start test 4
 ]]></system-err>
 </testsuite>
