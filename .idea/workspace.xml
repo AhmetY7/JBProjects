@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="099e5b68-f228-4770-911a-707cd39a4667" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="099e5b68-f228-4770-911a-707cd39a4667" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +154,7 @@
       <option name="presentableId" value="Default" />
       <updated>1566998976407</updated>
       <workItem from="1566998978116" duration="3422000" />
-      <workItem from="1567014589126" duration="3704000" />
+      <workItem from="1567014589126" duration="3985000" />
     </task>
     <task id="LOCAL-00001" summary="Branch is updated.">
       <created>1567001658456</created>
@@ -179,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567017858240</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Stage #3 completed">
+      <created>1567019922810</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1567019922810</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,7 +206,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Branch is updated." />
     <MESSAGE value="Stage #2 completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Stage #2 completed" />
+    <MESSAGE value="Stage #3 completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Stage #3 completed" />
   </component>
   <component name="WindowStateProjectService">
     <state width="364" height="220" key="Git.Branch.Popup@1080.1920" />
