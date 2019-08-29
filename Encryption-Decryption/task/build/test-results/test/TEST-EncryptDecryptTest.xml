@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="EncryptDecryptTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-08-28T19:15:35" hostname="DESKTOP-THO95HJ" time="0.052">
+<testsuite name="EncryptDecryptTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-08-29T12:20:32" hostname="DESKTOP-THO95HJ" time="0.028">
   <properties/>
-  <testcase name="start" classname="EncryptDecryptTest" time="0.052"/>
-  <system-out><![CDATA[\jqhtrj%yt%m~ujwxpnqq&Hello123456789Welcome to hyperskill!Hello111122223333]]></system-out>
+  <testcase name="start" classname="EncryptDecryptTest" time="0.028"/>
+  <system-out><![CDATA[\jqhtrj%yt%m~ujwxpnqq&Hello123456789Welcome to hyperskill!Hi111122223333]]></system-out>
   <system-err><![CDATA[Start test 1
 Start test 2
 Start test 3
