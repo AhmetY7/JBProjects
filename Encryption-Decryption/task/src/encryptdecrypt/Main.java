@@ -1,8 +1,7 @@
 package encryptdecrypt;
 
-import java.util.Scanner;
-
 public class Main {
+
     private static void decryption(String message, int key) {
         for(int i=0; i<message.length(); i++) {
             char temp = message.charAt(i);
@@ -20,14 +19,23 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String operation = scanner.nextLine();
-        String message = scanner.nextLine();
-        int key = scanner.nextInt();
-        if("dec".equals(operation)) {
-            decryption(message,key);
+        String mode = "enc";
+        String data = "";
+        int key = 0;
+        for(int i=0; i<args.length; i++){
+            if("-mode".equals(args[i])) {
+                mode = args[++i];
+            } else if("-data".equals(args[i])) {
+                data = args[++i];
+            } else if("-key".equals(args[i])) {
+                key = Integer.parseInt(args[++i]);
+            }
+        }
+        if("enc".equals(mode)){
+            encryption(data, key);
         } else {
-            encryption(message,key);
+            decryption(data, key);
         }
     }
 }
+
