@@ -19,19 +19,34 @@ public class Main {
             System.out.println(e.getMessage());
         }
     }
-    private static void decryption(int key, String readTxt, String writeTxt) {
+    private static void decryption(int key, String readTxt, String writeTxt, String algorithm) {
         String message = "";
         String willWriteMessage = "";
         try {
             message = readMessage(readTxt);
         } catch (IOException e) {
             System.out.println(e.getMessage());
+            return;
         }
 
         for(int i=0; i<message.length(); i++) {
             char temp = message.charAt(i);
-            temp -=key;
-            willWriteMessage += temp;
+            if("shift".equals(algorithm)){
+                if(temp>=97 && temp<=122) {
+                    temp -= key;
+                    if (temp < 97) {
+                        temp = (char) (123 - (97 - temp));
+                    }
+                    willWriteMessage += temp;
+                } else if(temp == ' '){
+                    willWriteMessage += " ";
+                } else {
+                    willWriteMessage += temp;
+                }
+            } else {
+                temp -=key;
+                willWriteMessage += temp;
+            }
         }
         if("".equals(writeTxt)){
             System.out.println(willWriteMessage);
@@ -40,19 +55,34 @@ public class Main {
         }
     }
 
-    private static void encryption(int key, String readTxt, String writeTxt) {
+    private static void encryption(int key, String readTxt, String writeTxt, String algorithm) {
         String message = "";
         String willWriteMessage = "";
         try {
             message = readMessage(readTxt);
         } catch (IOException e) {
             System.out.println(e.getMessage());
+            return;
         }
 
         for(int i=0; i<message.length(); i++) {
             char temp = message.charAt(i);
-            temp +=key;
-            willWriteMessage += temp;
+            if("shift".equals(algorithm)){
+                if(temp>=97 && temp<=122) {
+                    temp += key;
+                    if (temp > 122) {
+                        temp = (char) (96 + (temp - 122));
+                    }
+                    willWriteMessage += temp;
+                } else if(temp == ' '){
+                    willWriteMessage += " ";
+                } else {
+                    willWriteMessage += temp;
+                }
+            } else {
+                temp +=key;
+                willWriteMessage += temp;
+            }
         }
         if("".equals(writeTxt)){
             System.out.println(willWriteMessage);
@@ -65,6 +95,7 @@ public class Main {
         String mode = "enc";
         String readTxt = "";
         String writeTxt = "";
+        String algorithm = "" ;
         int key = 0;
         for(int i=0; i<args.length; i++){
             if("-mode".equals(args[i])) {
@@ -75,12 +106,14 @@ public class Main {
                 readTxt = args[++i];
             } else if("-out".equals(args[i])) {
                 writeTxt = args[++i];
+            } else if("-alg".equals(args[i])) {
+                algorithm = args[++i];
             }
         }
         if("enc".equals(mode)){
-            encryption(key, readTxt, writeTxt);
+            encryption(key, readTxt, writeTxt, algorithm);
         } else {
-            decryption(key, readTxt, writeTxt);
+            decryption(key, readTxt, writeTxt, algorithm);
         }
     }
 }
