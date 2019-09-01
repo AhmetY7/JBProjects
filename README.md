@@ -22,5 +22,5 @@ Completed!<br/>
  3. Coffee Machine : An important part of Java are classes, and this is what I will practice here. Getting more confident in Java programming by working with loops and conditions.<br/>
  <p align="center">
 <img src ="Simple%20Chatty%20Bot/task/test/demonstration.gif" width="600">
-<br/>In progress!<br/>
+:soon: In progress!<br/>
 </p>
