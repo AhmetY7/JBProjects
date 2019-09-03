@@ -24,5 +24,5 @@ Completed!<br/>
 <img src ="Coffee%20Machine/task/test/demonstration.gif" width="600">
  
 :white_check_mark:
-In progress!<br/>
+Completed!<br/>
 </p>
