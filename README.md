@@ -23,6 +23,6 @@ Completed!<br/>
  <p align="center">
 <img src ="Coffee%20Machine/task/test/demonstration.gif" width="600">
  
-:soon:
+:white_check_mark:
 In progress!<br/>
 </p>
