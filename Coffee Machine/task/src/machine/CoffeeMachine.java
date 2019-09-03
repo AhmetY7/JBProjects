@@ -1,6 +1,8 @@
 package machine;
 import java.util.Scanner;
 
+
+
 public class CoffeeMachine {
     private static int water = 400;
     private static int milk = 540;
