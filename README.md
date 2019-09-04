@@ -28,7 +28,7 @@ Completed!<br/>
 </p>
 4. Flashcards : A practice working on files and calling them from the command-line. <br/>
  <p align="center">
-<img src ="Coffee%20Machine/task/test/demonstration.gif" width="600">
+<img src ="Flashcards/task/test/demonstration.gif" width="600">
  
 :soon:
 In progress!<br/>
