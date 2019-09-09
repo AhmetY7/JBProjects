@@ -65,13 +65,16 @@ public class Main {
             logs.add("Can't remove \"" + card + "\": there is no such card.");
         }
     }
-    private static void importCards(Map<String, String> flashCards, ArrayList<String> logs)  {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("File name:");
-        logs.add("File name:");
-        String fileName = scanner.nextLine();
-        logs.add(fileName);
-        File file = new File(fileName);
+    private static void importCards(Map<String, String> flashCards, ArrayList<String> logs, String importFile)  {
+
+        if("".equals(importFile)) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("File name:");
+            logs.add("File name:");
+            importFile = scanner.nextLine();
+            logs.add(importFile);
+        }
+        File file = new File(importFile);
         try(Scanner fileScanner = new Scanner(file)) {
             int counter = 0;
             while (fileScanner.hasNext()) {
@@ -92,13 +95,15 @@ public class Main {
         }
 
     }
-    private static void exportCards(Map<String, String> flashCards, ArrayList<String> logs)  {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("File name:");
-        logs.add("File name:");
-        String fileName = scanner.nextLine();
-        logs.add(fileName);
-        File file = new File(fileName);
+    private static void exportCards(Map<String, String> flashCards, ArrayList<String> logs, String exportFile)  {
+        if("".equals(exportFile)) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("File name:");
+            logs.add("File name:");
+            exportFile = scanner.nextLine();
+            logs.add(exportFile);
+        }
+        File file = new File(exportFile);
         try (FileWriter writer = new FileWriter(file)) {
             for(Map.Entry<String, String> temp : flashCards.entrySet()) {
                 writer.write(temp.getKey() +"\n" + temp.getValue() + "\n");
@@ -246,6 +251,17 @@ public class Main {
         Map<String, String> flashCards = new LinkedHashMap<>();
         Map<String, Integer> hardestCards = new LinkedHashMap<>();
         ArrayList<String> logs = new ArrayList<>();
+        String importFile = "";
+        String exportFile = "";
+        for(int i=0; i<args.length; i++) {
+            if("-import".equals(args[i])){
+                importFile = args[++i];
+                getFileOfHarderstCards(hardestCards);
+                importCards(flashCards, logs, importFile);
+            } else if ("-export".equals(args[i])) {
+                exportFile = args[++i];
+            }
+        }
         System.out.println("Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):");
         logs.add("Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):");
         String action = scanner.nextLine();
@@ -258,10 +274,10 @@ public class Main {
                 remove(flashCards, logs, hardestCards);
             } else if("import".equals(action)) {
                 getFileOfHarderstCards(hardestCards);
-                importCards(flashCards, logs);
+                importCards(flashCards, logs, importFile);
             } else if("export".equals(action)) {
                 saveFileOfHardestCards(hardestCards);
-                exportCards(flashCards, logs);
+                exportCards(flashCards, logs, exportFile);
             } else if("ask".equals(action)) {
                 getFileOfHarderstCards(hardestCards);
                 ask(flashCards, logs, hardestCards);
@@ -280,5 +296,10 @@ public class Main {
         }
         System.out.println("Bye bye!");
         logs.add("Bye bye!");
+        if(!"".equals(exportFile)) {
+            saveFileOfHardestCards(hardestCards);
+            exportCards(flashCards, logs, exportFile);
+        }
+
     }
 }
