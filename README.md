@@ -30,6 +30,6 @@ Completed!<br/>
  <p align="center">
 <img src ="Flashcards/task/test/demonstration.gif" width="600">
  
-:soon:
-In progress!<br/>
+:white_check_mark:
+Completed!<br/>
 </p>
