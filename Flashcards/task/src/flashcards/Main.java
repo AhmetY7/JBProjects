@@ -49,7 +49,7 @@ public class Main {
         logs.add("The pair (\""+ card + "\":\""+ definition +"\") has been added.");
         flashCards.put(card, definition);
     }
-    private static void remove(Map<String, String> flashCards, ArrayList<String> logs) {
+    private static void remove(Map<String, String> flashCards, ArrayList<String> logs, Map<String, Integer> hardestCards) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("The card:");
         logs.add("The card:");
@@ -57,6 +57,7 @@ public class Main {
         logs.add(card);
         if(flashCards.containsKey(card)) {
             flashCards.remove(card);
+            resetHardestCardFile(card, hardestCards);
             System.out.println("The card has been removed.");
             logs.add("The card has been removed.");
         } else {
@@ -146,20 +147,6 @@ public class Main {
                 }
             }
         }
-
-        /*for(Map.Entry<String, String> temp : flashCards.entrySet()) {
-
-            String answer = scanner.nextLine();
-            if(answer.equals(temp.getValue())) {
-                System.out.println("Correct answer.");
-            } else {
-                if(flashCards.containsValue(answer)) {
-                    System.out.println("Wrong answer. (The correct one is \""+ temp.getValue() +"\", you've just written the definition of \"" + getKey(flashCards, answer) + "\".)");
-                } else {
-                    System.out.println("Wrong answer. (The correct one is \""+ temp.getValue() +"\".)");
-                }
-            }
-        }*/
     }
     private static void log(ArrayList<String> logs) {
         Scanner scanner = new Scanner(System.in);
@@ -218,6 +205,41 @@ public class Main {
         hardestCards.clear();
         System.out.println("Card statistics has been reset.");
         logs.add("Card statistics has been reset.");
+        String fileName = "hardestCards.txt";
+        File file = new File(fileName);
+        try (FileWriter writer = new FileWriter(file)) {
+            writer.write("");
+        } catch (IOException e) {
+            System.out.println("Someting went wrong!");
+        }
+    }
+    private static void getFileOfHarderstCards(Map<String, Integer> hardestCards) {
+        String fileName = "hardestCards.txt";
+        File file = new File(fileName);
+        try(Scanner fileScanner = new Scanner(file)) {
+            while (fileScanner.hasNext()) {
+                String card = fileScanner.nextLine();
+                int error = Integer.parseInt(fileScanner.nextLine());
+                hardestCards.put(card, error);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found.");
+        }
+    }
+    private static void saveFileOfHardestCards(Map<String, Integer> hardestCards) {
+        String fileName = "hardestCards.txt";
+        File file = new File(fileName);
+        try (FileWriter writer = new FileWriter(file)) {
+            for(Map.Entry<String, Integer> temp : hardestCards.entrySet()) {
+                writer.write(temp.getKey() +"\n" + temp.getValue() + "\n");
+            }
+        } catch (IOException e) {
+            System.out.println("Someting went wrong!");
+        }
+    }
+    private static void resetHardestCardFile(String card, Map<String, Integer> hardestCards){
+        hardestCards.remove(card);
+        saveFileOfHardestCards(hardestCards);
     }
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
@@ -233,12 +255,15 @@ public class Main {
             if("add".equals(action)) {
                 add(flashCards, logs);
             } else if("remove".equals(action)) {
-                remove(flashCards, logs);
+                remove(flashCards, logs, hardestCards);
             } else if("import".equals(action)) {
+                getFileOfHarderstCards(hardestCards);
                 importCards(flashCards, logs);
             } else if("export".equals(action)) {
+                saveFileOfHardestCards(hardestCards);
                 exportCards(flashCards, logs);
             } else if("ask".equals(action)) {
+                getFileOfHarderstCards(hardestCards);
                 ask(flashCards, logs, hardestCards);
             } else if("log".equals(action)) {
                 log(logs);
