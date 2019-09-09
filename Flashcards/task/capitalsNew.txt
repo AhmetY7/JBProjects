@@ -1,2 +1,6 @@
 France
 Paris
+Russia
+Moscow
+Japan
+Tokyo
