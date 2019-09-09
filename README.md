@@ -31,5 +31,5 @@ Completed!<br/>
 <img src ="Flashcards/task/test/demonstration.gif" width="600">
  
 :white_check_mark:
-In progress!<br/>
+Completed!<br/>
 </p>
