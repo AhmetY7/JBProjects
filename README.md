@@ -33,3 +33,10 @@ Completed!<br/>
 :white_check_mark:
 Completed!<br/>
 </p>
+5. Tic-Tac-Toe with AI : A famous game with a 3x3 field against simple AI.  <br/>
+ <p align="center">
+<img src ="" width="600">
+ 
+:soon:
+In progress!<br/>
+</p>
