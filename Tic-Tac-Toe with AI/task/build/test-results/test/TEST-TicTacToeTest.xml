@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TicTacToeTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-09-12T08:52:15" hostname="DESKTOP-THO95HJ" time="0.089">
+  <properties/>
+  <testcase name="start" classname="TicTacToeTest" time="0.089"/>
+  <system-out><![CDATA[Enter cells: 
+---------
+| X X X |
+| O O   |
+|   O   |
+---------
+X wins
+Enter cells: 
+---------
+| X O X |
+| O X O |
+| X X O |
+---------
+X wins
+Enter cells: 
+---------
+| X O O |
+| O X O |
+| X X O |
+---------
+O wins
+Enter cells: 
+---------
+| X O X |
+| O O X |
+| X X O |
+---------
+Draw
+Enter cells: 
+---------
+| X O   |
+| O O X |
+|   X   |
+---------
+Game not finished
+Enter cells: 
+---------
+| X O   |
+| X O   |
+| X O X |
+---------
+Impossible
+Enter cells: 
+---------
+|   O   |
+| X     |
+| X   X |
+---------
+Impossible
+Enter cells: 
+---------
+|   O O |
+| O O   |
+| X   X |
+---------
+Impossible
+]]></system-out>
+  <system-err><![CDATA[Start test 1
+Start test 2
+Start test 3
+Start test 4
+Start test 5
+Start test 6
+Start test 7
+Start test 8
+]]></system-err>
+</testsuite>
