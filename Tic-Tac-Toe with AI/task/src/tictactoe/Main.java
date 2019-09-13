@@ -54,29 +54,49 @@ public class Main {
         }
     }
 
+    private static void nextMove(String[][] gameField) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the coordinates: ");
+        int rightToLeft = Integer.parseInt(scanner.next());
+        int leftToRight = Integer.parseInt(scanner.next());
+        System.out.print(rightToLeft +" "+ leftToRight);
+        if(leftToRight == 3) {
+            leftToRight = 1;
+        } else if(leftToRight == 1) {
+            leftToRight = 3;
+        }
+        gameField[leftToRight-1][rightToLeft-1] = "X";
+
+    }
+
+    private static void drawGameField(String[][] gameField) {
+        System.out.println ("---------");
+        for (int i = 0; i< 3; i++) {
+            System.out.print("| ");
+            for (int j = 0; j< 3; j++) {
+                System.out.print(gameField[i][j] + " ");
+            }
+            System.out.println("|");
+        }
+        System.out.println("---------");
+
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter cells: ");
         String cells = scanner.nextLine();
         String[][] gameField = new String[3][3];
-        System.out.println();
-        System.out.print("---------\n| ");
-        for (int i = 0, j = 0, k = 0; i < cells.length(); i++) {
-            if (cells.charAt(i) == '\"') {
-                continue;
-            } else {
-                if (i > 3 && i % 3 == 1) {
-                    System.out.print("|\n| ");
-                    j++;
-                }
-                System.out.print(cells.charAt(i) + " ");
-                gameField[j][k%3] = Character.toString(cells.charAt(i));
+        for(int i=0,k=1; i<3; i++) {
+            for(int j=0; j<3; j++) {
+                gameField[i][j] = Character.toString(cells.charAt(k));
                 k++;
             }
         }
-        System.out.println("|");
-        System.out.println("---------");
-        gameSituation(gameField);
+        drawGameField(gameField);
+        nextMove(gameField);
+        drawGameField(gameField);
+        //gameSituation(gameField);
     }
 }
 
