@@ -57,15 +57,33 @@ public class Main {
     private static void nextMove(String[][] gameField) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the coordinates: ");
-        int rightToLeft = Integer.parseInt(scanner.next());
-        int leftToRight = Integer.parseInt(scanner.next());
+        int rightToLeft = 0;
+        int leftToRight = 0;
+        try{
+            rightToLeft = Integer.parseInt(scanner.next());
+            leftToRight = Integer.parseInt(scanner.next());
+            if(rightToLeft > 3 || rightToLeft < 1 || leftToRight > 3 || leftToRight < 1) {
+                System.out.println("Coordinates should be from 1 to 3!");
+                nextMove(gameField);
+                return;
+            }
+        } catch (Exception e) {
+            System.out.println("You should enter numbers!");
+            nextMove(gameField);
+            return;
+        }
         System.out.print(rightToLeft +" "+ leftToRight);
         if(leftToRight == 3) {
             leftToRight = 1;
         } else if(leftToRight == 1) {
             leftToRight = 3;
         }
-        gameField[leftToRight-1][rightToLeft-1] = "X";
+        if(" ".equals(gameField[leftToRight-1][rightToLeft-1])) {
+            gameField[leftToRight-1][rightToLeft-1] = "X";
+        } else {
+            System.out.println("This cell is occupied! Choose another one!");
+            nextMove(gameField);
+        }
 
     }
 
