@@ -1,5 +1,6 @@
 package tictactoe;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -57,8 +58,8 @@ public class Main {
     private static void nextMove(String[][] gameField) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the coordinates: ");
-        int rightToLeft = 0;
-        int leftToRight = 0;
+        int rightToLeft;
+        int leftToRight;
         try{
             rightToLeft = Integer.parseInt(scanner.next());
             leftToRight = Integer.parseInt(scanner.next());
@@ -87,6 +88,22 @@ public class Main {
 
     }
 
+    private static void easyMove(String[][] gameField) {
+        System.out.println("Making move level \"easy\"");
+        Random random = new Random();
+        int rightToLeft;
+        int leftToRight;
+        rightToLeft = random.nextInt(3) + 1;
+        leftToRight = random.nextInt(3) + 1;
+        if(" ".equals(gameField[leftToRight-1][rightToLeft-1])) {
+            gameField[leftToRight-1][rightToLeft-1] = "X";
+        } else {
+            easyMove(gameField);
+        }
+
+
+    }
+
     private static void drawGameField(String[][] gameField) {
         System.out.println ("---------");
         for (int i = 0; i< 3; i++) {
@@ -112,7 +129,8 @@ public class Main {
             }
         }
         drawGameField(gameField);
-        nextMove(gameField);
+        //nextMove(gameField);
+        easyMove(gameField);
         drawGameField(gameField);
         //gameSituation(gameField);
     }
