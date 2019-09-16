@@ -37,21 +37,21 @@ public class Main {
         return row;
     }
 
-    private static void gameSituation(String[][] gameField) {
+    private static String gameSituation(String[][] gameField) {
         int numberOfO = numberOfElement(gameField, "O");
         int numberOfX = numberOfElement(gameField, "X");
         boolean xRow = isRow(gameField, "X");
         boolean oRow = isRow(gameField, "O");
         if((xRow && oRow) || Math.abs(numberOfO-numberOfX) > 1) {
-            System.out.println("Impossible");
+            return "Impossible";
         } else if (xRow) {
-            System.out.println("X wins");
+            return "X wins";
         } else if (oRow) {
-            System.out.println("O wins");
+            return "O wins";
         } else if (numberOfO + numberOfX == 9) {
-            System.out.println("Draw");
+            return "Draw";
         } else {
-            System.out.println("Game not finished");
+            return " ";
         }
     }
 
@@ -95,13 +95,11 @@ public class Main {
         int leftToRight;
         rightToLeft = random.nextInt(3) + 1;
         leftToRight = random.nextInt(3) + 1;
-        if(" ".equals(gameField[leftToRight-1][rightToLeft-1])) {
-            gameField[leftToRight-1][rightToLeft-1] = "X";
-        } else {
-            easyMove(gameField);
+        while (!" ".equals(gameField[leftToRight-1][rightToLeft-1])) {
+            rightToLeft = random.nextInt(3) + 1;
+            leftToRight = random.nextInt(3) + 1;
         }
-
-
+        gameField[leftToRight-1][rightToLeft-1] = "O";
     }
 
     private static void drawGameField(String[][] gameField) {
@@ -119,20 +117,20 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter cells: ");
-        String cells = scanner.nextLine();
-        String[][] gameField = new String[3][3];
-        for(int i=0,k=1; i<3; i++) {
-            for(int j=0; j<3; j++) {
-                gameField[i][j] = Character.toString(cells.charAt(k));
-                k++;
+        String[][] gameField = {{" ", " ", " "},{" ", " ", " "},{" ", " ", " "}};
+        String result = " ";
+        while (" ".equals(result)) {
+            drawGameField(gameField);
+            nextMove(gameField);
+            result = gameSituation(gameField);
+            if(" ".equals(result)) {
+                drawGameField(gameField);
+                easyMove(gameField);
+                result = gameSituation(gameField);
             }
         }
         drawGameField(gameField);
-        //nextMove(gameField);
-        easyMove(gameField);
-        drawGameField(gameField);
-        //gameSituation(gameField);
+        System.out.println(result);
     }
 }
 
