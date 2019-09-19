@@ -40,6 +40,9 @@ Completed!<br/>
 :white_check_mark:
 Completed!<br/>
 </p>
+
+Medium Projects
+----------------
 6. Numeral System Converter : In this project I will create a mathematical helper that will help you convert numbers from system M to system N. Mastering loops and arrays, and learning how to handle errors. And besides, exploring binary — one of the basic concepts in programming.  <br/>
  <p align="center">
 <img src ="Numeral%20System%20Converter/task/test/demonstration.gif" width="600">
