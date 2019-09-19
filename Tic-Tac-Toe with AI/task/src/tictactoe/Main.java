@@ -239,6 +239,8 @@ public class Main {
                         nextMove(gameField, "X");
                     } else if ("easy".equals(player1)){
                         easyMove(gameField, "X");
+                    } else if ("medium".equals(player1)){
+                        mediumMove(gameField, "X");
                     } else {
                         mediumMove(gameField, "X");
                     }
@@ -249,6 +251,8 @@ public class Main {
                             nextMove(gameField, "O");
                         } else if("easy".equals(player2)){
                             easyMove(gameField, "O");
+                        } else if ("medium".equals(player2)){
+                            mediumMove(gameField, "O");
                         } else {
                             mediumMove(gameField, "O");
                         }
