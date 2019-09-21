@@ -1,7 +1,12 @@
 package converter;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("8 is equal to 0b1000");
+        Scanner scanner = new Scanner(System.in);
+        int number = Integer.parseInt(scanner.next());
+        int lastDigit = number % 8;
+        System.out.println(lastDigit);
     }
 }
