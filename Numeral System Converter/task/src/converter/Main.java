@@ -4,66 +4,43 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    private static void convertToRadix(String radix, int number) {
+    private static void convertToRadix(int radix, int number) {
         ArrayList<Integer> result = new ArrayList<>();
-        if("2".equals(radix)) {
-            while (number >= 2) {
-                result.add(number%2);
-                number /= 2;
-            }
-            result.add(number);
-            System.out.print("0b");
-        } else if("8".equals(radix)) {
-            while (number >= 8) {
-                result.add(number%8);
-                number /= 8;
-            }
-            result.add(number);
-            System.out.print("0");
-        } else {
-            while (number >= 16) {
-                result.add(number%16);
-                number /= 16;
-            }
-            result.add(number);
-            System.out.print("0x");
+        while (number >= radix) {
+            result.add(number % radix);
+            number /= radix;
         }
+        result.add(number);
+        String convertedRadix = "";
         for(int i=result.size()-1; i>=0; i--) {
-            if("2".equals(radix)) {
-                System.out.print(result.get(i));
-            } else if("8".equals(radix)) {
-                System.out.print(result.get(i));
+            if(result.get(i) > 9) {
+                convertedRadix += Character.toString(97 + result.get(i) - 10);
             } else {
-                switch (result.get(i)) {
-                    case 10:
-                        System.out.print("a");
-                        break;
-                    case 11:
-                        System.out.print("b");
-                        break;
-                    case 12:
-                        System.out.print("c");
-                        break;
-                    case 13:
-                        System.out.print("d");
-                        break;
-                    case 14:
-                        System.out.print("e");
-                        break;
-                    case 15:
-                        System.out.print("f");
-                        break;
-                    default:
-                        System.out.print(result.get(i));
-
-                }
+                convertedRadix += Integer.toString(result.get(i));
             }
         }
+        System.out.println(convertedRadix);
+    }
+    private static int convertTo10(int sourceRadix, String number) {
+        int total = 0;
+        for(int i=number.length()-1, j=0; i>=0; i--,j++) {
+            total += Math.pow(sourceRadix,j) * Integer.parseInt(Character.toString(number.charAt(i)));
+        }
+        return total;
     }
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int number = Integer.parseInt(scanner.nextLine());
-        String radix = scanner.nextLine();
-        convertToRadix(radix, number);
+        int sourceRadix = Integer.parseInt(scanner.nextLine());
+        String number = scanner.nextLine();
+        int radix = Integer.parseInt(scanner.nextLine());
+        if(sourceRadix != 10) {
+            convertToRadix(radix,convertTo10(sourceRadix, number));
+        } else if (radix == 1) {
+            for(int i=0; i<Integer.parseInt(number); i++) {
+                System.out.print("1");
+            }
+        } else {
+            convertToRadix(radix,Integer.parseInt(number));
+        }
     }
 }
