@@ -1,7 +1,7 @@
 import converter.Main;
-import org.hyperskill.hstest.v5.stage.BaseStageTest;
-import org.hyperskill.hstest.v5.testcase.CheckResult;
-import org.hyperskill.hstest.v5.testcase.TestCase;
+import org.hyperskill.hstest.v6.stage.BaseStageTest;
+import org.hyperskill.hstest.v6.testcase.CheckResult;
+import org.hyperskill.hstest.v6.testcase.TestCase;
 
 import java.util.List;
 
