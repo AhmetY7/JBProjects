@@ -1,9 +1,13 @@
-package com.company;
+package converter;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+    private static String convertToRadix(int radix, String number) {
+        //Burası source radix i 10 dan büyük olanlar için yazılacak
+        return "";
+    }
     private static String convertToRadix(int radix, int number) {
         ArrayList<Integer> result = new ArrayList<>();
         while (number >= radix) {
@@ -53,16 +57,16 @@ public class Main {
         String number = scanner.nextLine();
         String[] fractions = number.split("\\.");
         int radix = Integer.parseInt(scanner.nextLine());
-        if(sourceRadix != 10) {
+        if (radix == 1) {
+            for(int i=0; i<Integer.parseInt(fractions[0]); i++) {
+                System.out.print("1");
+            }
+        } else if(sourceRadix != 10) {
             int intTo10 = convertTo10(sourceRadix, fractions[0]);
             double fractionTo10 = convertFractionTo10(sourceRadix, fractions[1]);
             String intPart = convertToRadix(radix, intTo10);
             String fractionPart = convertFractionToRadix(radix, fractionTo10);
             System.out.print(intPart + "." + fractionPart);
-        } else if (radix == 1) {
-            for(int i=0; i<Integer.parseInt(number); i++) {
-                System.out.print("1");
-            }
         } else {
             String intPart = convertToRadix(radix,Integer.parseInt(fractions[0]));
             String fractionPart = convertFractionToRadix(radix, Double.parseDouble("0." + fractions[1]));
