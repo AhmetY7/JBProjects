@@ -20,45 +20,53 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int sourceRadix = Integer.parseInt(scanner.nextLine());
-        String[] numbers = scanner.nextLine().split("\\.");
-        int destinationRadix = Integer.parseInt(scanner.nextLine());
-        String intPart = "";
-        if(sourceRadix == 1) {
-            numbers[0] = Integer.toString(numbers[0].length());
-            sourceRadix = 10;
-        }
-        if(destinationRadix == 1) {
-            StringBuilder for1destination = new StringBuilder();
-            for(int i=0; i<Integer.parseInt(numbers[0]);i++){
-                for1destination.append("1");
+        try {
+            Scanner scanner = new Scanner(System.in);
+            int sourceRadix = Integer.parseInt(scanner.nextLine());
+            String[] numbers = scanner.nextLine().split("\\.");
+            int destinationRadix = Integer.parseInt(scanner.nextLine());
+            String intPart = "";
+            if(sourceRadix <= 0 || destinationRadix <= 0 || sourceRadix > 36 || destinationRadix > 36) {
+                throw new Exception();
             }
-            intPart = for1destination.toString();
-            System.out.println(intPart);
-        } else {
-            intPart = letter(sourceRadix, numbers[0], destinationRadix);
-            // if source radix is not 10
-            if(sourceRadix != 10) {
-                numbers[0] = intPart;
-                if(numbers.length == 2) {
-                    double tenFraction = 0.0;
-                    for(int i=0; i<numbers[1].length(); i++) {
-                        tenFraction += (Integer.parseInt(letter(sourceRadix,Character.toString(numbers[1].charAt(i)),10))) / (Math.pow(sourceRadix,i+1));
-                    }
-                    if(tenFraction == 0.0) {
-                        numbers[1] = "00000";
-                    } else {
-                        numbers[1] = Double.toString(tenFraction).substring(2);
+            if(sourceRadix == 1) {
+                numbers[0] = Integer.toString(numbers[0].length());
+                sourceRadix = 10;
+            }
+            if(destinationRadix == 1) {
+                StringBuilder for1destination = new StringBuilder();
+                for(int i=0; i<Integer.parseInt(numbers[0]);i++){
+                    for1destination.append("1");
+                }
+                intPart = for1destination.toString();
+                System.out.println(intPart);
+            } else {
+                intPart = letter(sourceRadix, numbers[0], destinationRadix);
+                // if source radix is not 10
+                if(sourceRadix != 10) {
+                    numbers[0] = intPart;
+                    if(numbers.length == 2) {
+                        double tenFraction = 0.0;
+                        for(int i=0; i<numbers[1].length(); i++) {
+                            tenFraction += (Integer.parseInt(letter(sourceRadix,Character.toString(numbers[1].charAt(i)),10))) / (Math.pow(sourceRadix,i+1));
+                        }
+                        if(tenFraction == 0.0) {
+                            numbers[1] = "00000";
+                        } else {
+                            numbers[1] = Double.toString(tenFraction).substring(2);
+                        }
                     }
                 }
+                if(numbers.length == 2){
+                    String fractionPart = fractionalCalculate(numbers[1], destinationRadix);
+                    System.out.println(intPart + "." + fractionPart);
+                } else {
+                    System.out.println(intPart);
+                }
             }
-            if(numbers.length == 2){
-                String fractionPart = fractionalCalculate(numbers[1], destinationRadix);
-                System.out.println(intPart + "." + fractionPart);
-            } else {
-                System.out.println(intPart);
-            }
+        }
+        catch (Exception e) {
+            System.out.println("Something went wrong. There is an error!");
         }
     }
 }
